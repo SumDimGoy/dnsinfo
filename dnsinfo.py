@@ -7,6 +7,8 @@ from dns import (
     resolver, rdatatype, rcode as dns_rcode)
 
 logger = getLogger()
+
+# IANA Root Servers
 root_servers = (
     '198.41.0.4', '199.9.14.201', '192.33.4.12',
     '199.7.91.13', '192.203.230.10', '192.5.5.241',
@@ -266,7 +268,7 @@ def dnssec_check(domain, nameservers=False):
 
     if not nameservers:
         try:
-            info = dig(domain)
+            info = probe(domain)
             nameservers = info[domain.strip('www.')+'.']['NS']
         except Exception as e:
             raise e
