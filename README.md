@@ -7,7 +7,7 @@ dnsinfo is a module for Python that obtains all DNS records information for each
 ### Usage ###
 <hr>
 
-#### Dig ####
+#### Probe ####
 ```python
 from dnsinfo import probe
 
@@ -15,7 +15,7 @@ from dnsinfo import probe
 info = probe('sources.org')
 ```
 ```
->>> data['root_ns']
+>>> info['root_ns']
 '192.36.148.17'
 
 >>> info['sources.org.']
